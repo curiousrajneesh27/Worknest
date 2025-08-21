@@ -32,7 +32,6 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Typing animation effect
   useEffect(() => {
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
