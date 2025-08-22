@@ -49,7 +49,7 @@ function App() {
     return () => clearInterval(typingInterval);
   }, []);
 
-  // Globe initialization - pure rotation only
+  // Globe initialization - pure rotation only (ORIGINAL CODE)
   useEffect(() => {
     if (globeEl.current) {
       globeEl.current.controls().autoRotate = true;
@@ -124,13 +124,15 @@ function App() {
           {/* Left Content */}
           <div className="space-y-4 sm:space-y-6 md:space-y-8 text-center lg:text-left order-last lg:order-first">
             <div className="space-y-2 sm:space-y-3 md:space-y-4">
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold leading-tight sm:leading-snug">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
                 <div>A platform designed</div>
                 <div>specifically for</div>
                 <div>first-time freelancers.</div>
-                <div className="mt-1 sm:mt-2">It's <span className="text-green-400">{typedText}<span className="animate-pulse">|</span></span></div>
+                <div className="mt-1 sm:mt-2 text-2xl xs:text-3xl sm:text-4xl md:text-5xl">
+                  It's <span className="text-green-400">{typedText}<span className="animate-pulse">|</span></span>
+                </div>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 mt-4">
                 We're building a freelancing platform that solves the "first project problem" for beginners. 
                 Get started without a portfolio and earn from your very first project, with our simplified system that handles everything from matching 
                 to payments.
@@ -217,19 +219,17 @@ function App() {
             </div>
           </div>
 
-          {/* Right Content - Pure Rotating Globe Only */}
-          <div className="flex justify-center items-center order-first lg:order-last mb-4 sm:mb-6 lg:mb-0">
-            <div className="w-64 h-64 xs:w-72 xs:h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-full lg:h-full max-w-full">
-              <Globe
-                ref={globeEl}
-                width={400}
-                height={400}
-                backgroundColor="rgba(0,0,0,0)"
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-                showAtmosphere={true}
-                atmosphereColor="rgba(100, 200, 255, 0.2)"
-              />
-            </div>
+          {/* Right Content - Pure Rotating Globe Only (ORIGINAL CODE) */}
+          <div className="flex justify-center items-center order-first lg:order-last">
+            <Globe
+              ref={globeEl}
+              width={400}
+              height={400}
+              backgroundColor="rgba(0,0,0,0)"
+              globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+              showAtmosphere={true}
+              atmosphereColor="rgba(100, 200, 255, 0.2)"
+            />
           </div>
         </div>
       </main>
